@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Futuristic Dashboard Design System - Violet & Black Theme */
+
+@layer base {
+  :root {
+    /* Dark futuristic color palette */
+    --background: 240 10% 6%;
+    --foreground: 280 100% 95%;
+
+    /* Card system with glassmorphism */
+    --card: 240 15% 8%;
+    --card-foreground: 280 100% 95%;
+    --card-glass: 270 30% 12%;
+
+    /* Popover system */
+    --popover: 240 20% 10%;
+    --popover-foreground: 280 100% 95%;
+
+    /* Primary - Electric violet */
+    --primary: 270 100% 65%;
+    --primary-foreground: 240 10% 6%;
+    --primary-glow: 270 100% 75%;
+
+    /* Secondary - Deep purple */
+    --secondary: 260 80% 25%;
+    --secondary-foreground: 280 100% 95%;
+
+    /* Muted - Dark grays with purple tint */
+    --muted: 250 20% 15%;
+    --muted-foreground: 270 15% 65%;
+
+    /* Accent - Neon purple */
+    --accent: 280 100% 70%;
+    --accent-foreground: 240 10% 6%;
+
+    /* Destructive - Electric red */
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 260 30% 20%;
+    --input: 260 30% 15%;
+    --ring: 270 100% 65%;
+
+    --radius: 0.75rem;
+
+    /* Futuristic gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(270 100% 65%), hsl(260 80% 45%));
+    --gradient-secondary: linear-gradient(135deg, hsl(240 15% 8%), hsl(260 30% 12%));
+    --gradient-accent: linear-gradient(135deg, hsl(280 100% 70%), hsl(270 100% 60%));
+    --gradient-background: linear-gradient(135deg, hsl(240 10% 6%), hsl(260 15% 8%));
+    --gradient-glass: linear-gradient(135deg, 
+      hsla(270 30% 12% / 0.3), 
+      hsla(280 20% 15% / 0.1)
+    );
+
+    /* Neon glows */
+    --glow-primary: 0 0 20px hsl(270 100% 65% / 0.5);
+    --glow-accent: 0 0 30px hsl(280 100% 70% / 0.4);
+    --glow-success: 0 0 20px hsl(120 100% 50% / 0.3);
+
+    /* Glassmorphism effects */
+    --glass-backdrop: blur(12px);
+    --glass-border: 1px solid hsla(270 30% 50% / 0.2);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: box-shadow 0.3s ease-in-out;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Glass card effects */
+  .glass-card {
+    @apply bg-gradient-to-br from-card-glass/30 to-card-glass/10 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+
+  /* Neon glow effects */
+  .neon-glow {
+    box-shadow: var(--glow-primary);
+    transition: var(--transition-glow);
+  }
+
+  .neon-glow:hover {
+    box-shadow: var(--glow-accent);
+  }
+
+  /* Animated gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  /* Pulse animation for live data indicators */
+  .pulse-indicator {
+    @apply relative;
+  }
+
+  .pulse-indicator::before {
+    content: '';
+    @apply absolute inset-0 rounded-full bg-accent animate-ping;
+  }
+
+  /* Interactive hover states */
+  .interactive-card {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/20;
+  }
+
+  /* Revenue display styling */
+  .revenue-text {
+    @apply font-bold text-2xl gradient-text;
+  }
+}

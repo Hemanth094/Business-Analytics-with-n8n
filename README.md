@@ -25,5 +25,3 @@ This project is a business analytics dashboard that provides insights into clien
 2.  Install dependencies: `npm install`
 3.  Run the development server: `npm run dev`
 =======
-# Business-Analytics-with-n8n
->>>>>>> b80c3d06e2704d1071897803eff43f3d4d054013
